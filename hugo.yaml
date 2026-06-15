@@ -6,7 +6,7 @@ theme: hugo-profile
 params:
   title: "Anirudh Aggarwal"
   description: "Staff Engineer — AI & Platform Engineering"
-  favicon: "/images/favicon.png"
+  favicon: "/images/hero.svg"
 
   useBootstrapCDN: false
   animate: true
@@ -66,7 +66,6 @@ params:
   about:
     enable: true
     title: "About Me"
-    image: "/images/me.png"
     content: |-
       I'm a Staff Engineer specialising in AI platform architecture, MLOps, and GenAI productionisation.
       My work sits at the intersection of large-scale infrastructure and applied machine learning — I care
@@ -110,7 +109,7 @@ params:
     items:
       - title: mesa
         content: Cross-platform machine provisioning — one command to a fully configured workstation. Manages packages, dotfiles, and system configuration across macOS and Linux.
-        image: /images/projects/mesa.png
+        image: /images/projects/mesa.svg
         featured:
           name: View on GitHub
           link: https://github.com/ani1797/mesa
@@ -124,7 +123,7 @@ params:
 
       - title: signalweave
         content: Declarative rule-evaluation agent built on the Microsoft Agent Framework and hosted on Azure AI Foundry. Evaluates signals across insurance and financial services domains.
-        image: /images/projects/signalweave.png
+        image: /images/projects/signalweave.svg
         featured:
           name: View on GitHub
           link: https://github.com/ani1797/signalweave
@@ -138,7 +137,7 @@ params:
 
       - title: ctc-foundry
         content: Terraform module for deploying Microsoft AI Foundry with full network isolation and Bring-Your-Own-VNet support. Production-ready Azure AI infrastructure as code.
-        image: /images/projects/ctc-foundry.png
+        image: /images/projects/ctc-foundry.svg
         featured:
           name: View on GitHub
           link: https://github.com/ani1797/ctc-foundry
@@ -152,7 +151,7 @@ params:
 
       - title: AutoDNS
         content: Kubernetes controller that watches service and ingress events and writes DNS entries compatible with dnsmasq or /etc/hosts. Eliminates manual DNS management in local k8s development.
-        image: /images/projects/autodns.png
+        image: /images/projects/autodns.svg
         featured:
           name: View on GitHub
           link: https://github.com/ani1797/autodns
@@ -166,7 +165,7 @@ params:
 
       - title: engineer_gpt
         content: AI-powered ML engineering assistant that scaffolds and iterates on machine learning projects. Uses OpenAI to generate, critique, and refine ML pipelines.
-        image: /images/projects/engineer-gpt.png
+        image: /images/projects/engineer-gpt.svg
         featured:
           name: View on GitHub
           link: https://github.com/ani1797/engineer_gpt

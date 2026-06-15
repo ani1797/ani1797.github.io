@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <rect width="600" height="300" fill="#0d1117"/>
+  <rect x="0" y="0" width="600" height="4" fill="#f59e0b"/>
+  <!-- Brain / AI icon -->
+  <path d="M270,100 Q260,85 275,80 Q285,75 290,88 Q300,78 310,85 Q320,78 330,88 Q342,85 335,100 Q345,108 338,118 Q345,128 335,135 Q338,148 325,150 Q318,162 305,155 Q295,162 285,155 Q272,162 265,150 Q255,148 258,135 Q248,128 255,118 Q245,108 255,100 Z" 
+        fill="#161b22" stroke="#f59e0b" stroke-width="1.5" stroke-linejoin="round"/>
+  <line x1="300" y1="78" x2="300" y2="162" stroke="#f59e0b" stroke-width="0.8" opacity="0.3"/>
+  <path d="M270,115 Q285,108 300,115 Q315,108 330,115" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.6"/>
+  <path d="M268,130 Q284,123 300,130 Q316,123 332,130" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.6"/>
+  <text x="300" y="210" font-family="monospace" font-size="18" fill="#f59e0b" text-anchor="middle" font-weight="bold">engineer_gpt</text>
+  <text x="300" y="232" font-family="monospace" font-size="11" fill="#6e7681" text-anchor="middle">AI-powered ML engineering assistant</text>
+</svg>

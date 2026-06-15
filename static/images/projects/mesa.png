@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none">
-  <rect width="600" height="300" fill="#161b22"/>
-  <rect x="1" y="1" width="598" height="298" rx="6" stroke="#30363d" stroke-width="1"/>
-  <text x="300" y="150" font-family="monospace" font-size="28" fill="#a78bfa" text-anchor="middle" dominant-baseline="middle">Mesa</text>
-</svg>
