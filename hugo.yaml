@@ -88,40 +88,80 @@ params:
       AI engineering at Microsoft scale.
     skills:
       enable: true
-      title: "Core Technologies"
-      items:
-        - name: "Python"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-        - name: "Go"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg"
-        - name: "TypeScript"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
-        - name: "Rust"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg"
-        - name: "PyTorch"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
-        - name: "Hugging Face"
-          logo: "https://cdn.simpleicons.org/huggingface/FFD21E"
-        - name: "LangChain"
-          logo: "https://cdn.simpleicons.org/langchain/ffffff"
-        - name: "OpenAI"
-          logo: "https://cdn.simpleicons.org/openai/ffffff"
-        - name: "Azure"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg"
-        - name: "AWS"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
-        - name: "GCP"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"
-        - name: "Kubernetes"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg"
-        - name: "Terraform"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg"
-        - name: "Docker"
-          logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg"
-        - name: "MLflow"
-          logo: "https://cdn.simpleicons.org/mlflow/0194E2"
-        - name: "Databricks"
-          logo: "https://cdn.simpleicons.org/databricks/FF3621"
+      title: "Tech Stack"
+      # Hidden pattern: each row is a layer of a production AI system.
+      # Shape: diamond (4-5-6-6-6-4) — narrow at language apex, narrow at observability base.
+      # Read top→bottom: Language → Learn → Cloud → Platform → Deliver → Observe.
+      # Within rows: ML lifecycle L→R in row 2; persistence | observability split in row 6.
+      pyramid:
+        # Row 1 — LANGUAGE: the four languages Anirudh thinks in
+        - - name: "Python"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+          - name: "Go"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg"
+          - name: "TypeScript"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+          - name: "Rust"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg"
+        # Row 2 — AI/ML: ordered by ML lifecycle (train → hub → orchestrate → consume → track)
+        - - name: "PyTorch"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
+          - name: "Hugging Face"
+            logo: "https://cdn.simpleicons.org/huggingface/FFD21E"
+          - name: "LangChain"
+            logo: "https://cdn.simpleicons.org/langchain/1C3C3C"
+          - name: "OpenAI"
+            logo: "https://cdn.simpleicons.org/openai/ffffff"
+          - name: "MLflow"
+            logo: "https://cdn.simpleicons.org/mlflow/0194E2"
+        # Row 3 — CLOUD + IaC: cloud providers left, app+infra-as-code right
+        - - name: "Azure"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg"
+          - name: "AWS"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
+          - name: "GCP"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"
+          - name: "Databricks"
+            logo: "https://cdn.simpleicons.org/databricks/FF3621"
+          - name: "Bicep"
+            logo: "https://raw.githubusercontent.com/Azure/bicep/main/src/vscode-bicep/icons/bicep-logo-256.png"
+          - name: "Next.js"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+        # Row 4 — PLATFORM: orchestration stack in deployment order
+        - - name: "Kubernetes"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg"
+          - name: "Docker"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg"
+          - name: "Terraform"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg"
+          - name: "Flux"
+            logo: "https://cdn.simpleicons.org/flux/5468FF"
+          - name: "Argo"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/argocd/argocd-original.svg"
+          - name: "Ansible"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg"
+        # Row 5 — DELIVER + DATA: CI/CD left, streaming + storage right
+        - - name: "GitHub Actions"
+            logo: "https://cdn.simpleicons.org/githubactions/2088FF"
+          - name: "Jenkins"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg"
+          - name: "Kafka"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg"
+          - name: "RabbitMQ"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg"
+          - name: "PostgreSQL"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+          - name: "Redis"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg"
+        # Row 6 — OBSERVE: the full Grafana LGTM stack + OpenTelemetry
+        - - name: "Grafana"
+            logo: "https://cdn.simpleicons.org/grafana/F46800"
+          - name: "Prometheus"
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg"
+          - name: "Loki"
+            logo: "https://raw.githubusercontent.com/grafana/loki/main/docs/sources/logo.png"
+          - name: "OpenTelemetry"
+            logo: "https://cdn.simpleicons.org/opentelemetry/425CC7"
 
   experience:
     enable: true
@@ -129,7 +169,7 @@ params:
 
       - company: "Microsoft"
         companyUrl: "https://www.microsoft.com"
-        companyLogo: "https://cdn.simpleicons.org/microsoft/0078D4"
+        companyLogo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
         jobs:
           - name: "Cloud and AI Engineer"
             date: "Feb 2026 – Present"
@@ -149,7 +189,7 @@ params:
 
       - company: "Manulife"
         companyUrl: "https://www.manulife.com"
-        companyLogo: "https://logo.clearbit.com/manulife.com"
+        companyLogo: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Manulife_logo.svg"
         jobs:
           - name: "Director, Generative AI"
             date: "May 2024 – Feb 2026 · 1 yr 10 mos"
@@ -225,7 +265,7 @@ params:
 
       - company: "Accenture"
         companyUrl: "https://www.accenture.com"
-        companyLogo: "https://cdn.simpleicons.org/accenture/A100FF"
+        companyLogo: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg"
         jobs:
           - name: "Advanced Application Engineer"
             date: "Aug 2018 – Dec 2019 · 1 yr 5 mos"
@@ -242,14 +282,15 @@ params:
               - Built and maintained Java and Node.js backend services integrated with third-party
                 financial data providers and enterprise middleware
 
-      - company: "Agreement Express"
-        companyUrl: "https://www.ncino.com"
+      - company: "NMI (fmr. Agreement Express)"
+        companyUrl: "https://www.nmi.com"
+        companyLogo: "https://www.nmi.com/wp-content/themes/nmi/images/NMI_Logo_Primary.webp"
         jobs:
           - name: "Project Engineer"
             date: "Jul 2017 – Aug 2018 · 1 yr 2 mos"
             content: |-
               Project Engineer at Agreement Express — a fintech onboarding platform used by banks
-              and financial institutions to digitise client onboarding workflows (later acquired by nCino).
+              and financial institutions to digitise client onboarding workflows (later acquired by NMI).
 
               - Developed and maintained a Google Material Design responsive web application using
                 HTML5, CSS, JavaScript, Polymer, React, and React Native; served as primary engineer
@@ -282,7 +323,7 @@ params:
     enable: true
     content: "I'm always open to interesting conversations about AI systems, platform engineering, and hard problems worth solving. Let's talk."
     btnName: "Get in touch"
-    btnLink: "mailto:ani.aggarwal@mail.utoronto.ca"
+    btnLink: "mailto:starfire1797@gmail.com"
 
   footer:
     recentPosts:

@@ -1,4 +1,20 @@
 /* =======================================================
+   CURSOR GLOW — ambient spotlight that follows the mouse
+   ======================================================= */
+#cursor-glow {
+  position: fixed;
+  top: 0; left: 0;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(167,139,250,0.065) 0%, transparent 65%);
+  transform: translate(calc(var(--cx, -1200px) - 300px), calc(var(--cy, -1200px) - 300px));
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* =======================================================
    HERO — particles host & z-index
    ======================================================= */
 #hero { position: relative; overflow: hidden; }
@@ -10,6 +26,11 @@
 }
 
 #hero .content, #hero .image, #hero .row { position: relative; z-index: 2; }
+
+#hero .content, #hero .image {
+  transition: transform 0.08s linear;
+  will-change: transform;
+}
 
 /* Animated gradient on the big name */
 #hero h1 {
@@ -29,6 +50,12 @@
 /* Typed cursor */
 .typed-cursor { color: var(--primary-color, #a78bfa); }
 
+/* Magnetic elements — spring-back handled by JS */
+.magnetic {
+  display: inline-block;
+  will-change: transform;
+}
+
 /* =======================================================
    IMPACT STATS SECTION
    ======================================================= */
@@ -40,7 +67,7 @@
   border-radius: 16px;
   padding: 2rem 1.25rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
@@ -53,7 +80,7 @@
   background: linear-gradient(90deg, #7c3aed, #a78bfa, #c4b5fd);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.4s ease;
+  transition: transform 0.35s cubic-bezier(0.33, 1, 0.68, 1);
 }
 .stat-card:hover::before { transform: scaleX(1); }
 .stat-card:hover {
@@ -84,48 +111,84 @@
 }
 
 /* =======================================================
-   TECH LOGO GRID
+   TECH STACK — PYRAMID LAYOUT
+   Matches reference site: grayscale→colour on hover,
+   frosted glass tiles, crisp cubic-bezier lift
    ======================================================= */
-.tech-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 1rem;
+.tech-stack-heading {
+  opacity: 0.75;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
 }
 
-.tech-badge {
+.tech-pyramid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.7rem 0.4rem;
-  background: rgba(167, 139, 250, 0.04);
-  border: 1px solid rgba(167, 139, 250, 0.14);
-  border-radius: 12px;
-  width: 68px;
-  transition: all 0.25s ease;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 0.45rem 0.6rem;
+  width: 60px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   cursor: default;
+  transition:
+    transform 0.25s cubic-bezier(0.33, 1, 0.68, 1),
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  will-change: transform;
 }
-.tech-badge:hover {
-  background: rgba(167, 139, 250, 0.1);
-  border-color: rgba(167, 139, 250, 0.4);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.18);
-}
-.tech-badge img {
+
+.tech-item img {
   width: 30px; height: 30px;
   object-fit: contain;
-  transition: filter 0.25s ease;
+  filter: grayscale(100%) contrast(1.15) brightness(1.4);
+  opacity: 0.72;
+  transition:
+    filter 0.25s cubic-bezier(0.33, 1, 0.68, 1),
+    opacity 0.25s ease;
 }
-.tech-badge:hover img {
-  filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.55));
+
+.tech-item:hover {
+  background: rgba(194, 164, 255, 0.1);
+  border-color: rgba(194, 164, 255, 0.25);
+  box-shadow: 0 8px 28px rgba(194, 164, 255, 0.2);
+  transform: translateY(-6px) scale(1.08);
 }
-.tech-badge small {
-  font-size: 0.58rem;
+
+.tech-item:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+.tech-item small {
+  font-size: 0.52rem;
   text-align: center;
-  margin-top: 0.35rem;
-  opacity: 0.7;
+  margin-top: 0.38rem;
+  opacity: 0.55;
   line-height: 1.2;
+  transition: opacity 0.2s ease;
 }
+.tech-item:hover small { opacity: 0.9; }
 
 /* =======================================================
    SECTION HEADING ACCENT
@@ -153,7 +216,7 @@ section h3.text-center::after {
 #pills-tab .nav-link {
   border: 1px solid rgba(167, 139, 250, 0.1) !important;
   border-radius: 10px !important;
-  transition: all 0.22s ease !important;
+  transition: all 0.22s cubic-bezier(0.33, 1, 0.68, 1) !important;
   padding: 0.5rem 0.8rem !important;
   display: flex !important;
   flex-direction: column !important;
@@ -187,22 +250,19 @@ section h3.text-center::after {
 }
 
 .tab-pane.show.active {
-  animation: tabSlideIn 0.3s ease;
+  animation: tabSlideIn 0.28s cubic-bezier(0.33, 1, 0.68, 1);
 }
 @keyframes tabSlideIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Company name link in job header */
 .experience-container a[href] {
   color: var(--primary-color, #a78bfa);
   text-decoration: none;
   transition: opacity 0.2s;
 }
 .experience-container a[href]:hover { opacity: 0.75; }
-
-/* Achievement bullet icon colour */
 .experience-container ul li::marker { color: var(--primary-color, #a78bfa); }
 
 /* =======================================================

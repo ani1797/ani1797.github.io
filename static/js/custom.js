@@ -4,19 +4,80 @@
   document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
-       1. AOS — Animate on Scroll
+       1. CURSOR GLOW — ambient spotlight following the mouse
        ===================================================== */
-    if (typeof AOS !== "undefined") {
-      AOS.init({
-        duration: 750,
-        easing: "ease-out-cubic",
-        once: true,
-        offset: 50,
+    var glow = document.createElement("div");
+    glow.id = "cursor-glow";
+    document.body.insertBefore(glow, document.body.firstChild);
+
+    document.addEventListener("mousemove", function (e) {
+      document.documentElement.style.setProperty("--cx", e.clientX + "px");
+      document.documentElement.style.setProperty("--cy", e.clientY + "px");
+    });
+
+    /* =====================================================
+       2. HERO PARALLAX — content & image move against each other
+       ===================================================== */
+    var heroSection = document.getElementById("hero");
+    if (heroSection) {
+      var heroContent = heroSection.querySelector(".content");
+      var heroImg    = heroSection.querySelector(".image");
+
+      document.addEventListener("mousemove", function (e) {
+        var w = window.innerWidth, h = window.innerHeight;
+        var dx = (e.clientX / w - 0.5) * 28;
+        var dy = (e.clientY / h - 0.5) * 14;
+
+        if (heroContent) {
+          heroContent.style.transform = "translate(" + (dx * 0.35) + "px, " + (dy * 0.35) + "px)";
+        }
+        if (heroImg) {
+          heroImg.style.transform = "translate(" + (-dx * 0.55) + "px, " + (-dy * 0.55) + "px)";
+        }
       });
     }
 
     /* =====================================================
-       2. PARTICLES.JS — Hero constellation background
+       3. MAGNETIC EFFECT — social icons + CTA button
+       ===================================================== */
+    var magneticSelectors = [
+      "#hero a[href]",
+      "#contact a.btn",
+      ".navbar-brand",
+    ];
+    document.querySelectorAll(magneticSelectors.join(", ")).forEach(function (el) {
+      el.classList.add("magnetic");
+
+      el.addEventListener("mousemove", function (e) {
+        var rect = el.getBoundingClientRect();
+        var cx = rect.left + rect.width  / 2;
+        var cy = rect.top  + rect.height / 2;
+        var dx = (e.clientX - cx) * 0.32;
+        var dy = (e.clientY - cy) * 0.32;
+        el.style.transition = "transform 0.15s cubic-bezier(0.33, 1, 0.68, 1)";
+        el.style.transform  = "translate(" + dx + "px, " + dy + "px)";
+      });
+
+      el.addEventListener("mouseleave", function () {
+        el.style.transition = "transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)";
+        el.style.transform  = "";
+      });
+    });
+
+    /* =====================================================
+       4. AOS — Animate on Scroll
+       ===================================================== */
+    if (typeof AOS !== "undefined") {
+      AOS.init({
+        duration: 650,
+        easing: "ease-out-cubic",
+        once: true,
+        offset: 40,
+      });
+    }
+
+    /* =====================================================
+       5. PARTICLES.JS — Hero constellation background
        ===================================================== */
     var heroEl = document.getElementById("hero");
     if (heroEl && typeof particlesJS !== "undefined") {
@@ -41,7 +102,7 @@
             enable: true,
             distance: 145,
             color: "#a78bfa",
-            opacity: 0.2,
+            opacity: 0.18,
             width: 1,
           },
           move: {
@@ -68,22 +129,24 @@
     }
 
     /* =====================================================
-       3. TYPED.JS — Cycling hero subtitle
+       6. TYPED.JS — General delivery-pedigree subtitle
+          (metrics live in the stats cards, not here)
        ===================================================== */
     var heroH2 = document.querySelector("#hero h2");
     if (heroH2 && typeof Typed !== "undefined") {
       heroH2.innerHTML = '<span id="hero-typed"></span>';
       new Typed("#hero-typed", {
         strings: [
-          "I turn cutting&#8209;edge AI into production&#8209;grade systems.",
-          "I shipped GenAI that runs at&nbsp;110M+&nbsp;calls&nbsp;a&nbsp;year.",
-          "I reduced policy underwriting from days to under&nbsp;2&nbsp;minutes.",
+          "I engineer systems that ship &mdash;&nbsp;and&nbsp;keep&nbsp;shipping.",
+          "I turn ambiguity into production&#8209;grade&nbsp;reality.",
           "I build the platforms other engineers build&nbsp;on.",
-          "I make AI genuinely useful in production&nbsp;&mdash;&nbsp;at&nbsp;scale.",
+          "I lead from the whiteboard all the way to the&nbsp;war&nbsp;room.",
+          "I close the gap between demo and&nbsp;deployed.",
+          "I make hard problems look&nbsp;routine.",
         ],
-        typeSpeed: 42,
-        backSpeed: 22,
-        backDelay: 3000,
+        typeSpeed: 40,
+        backSpeed: 20,
+        backDelay: 3200,
         startDelay: 700,
         loop: true,
         smartBackspace: false,
@@ -93,7 +156,7 @@
     }
 
     /* =====================================================
-       4. COUNTUP — Animated impact counters
+       7. COUNTUP — Animated impact counters
        ===================================================== */
     var statEls = document.querySelectorAll(".stat-counter");
     if (statEls.length) {
@@ -102,10 +165,10 @@
           entries.forEach(function (entry) {
             if (!entry.isIntersecting) return;
             var el = entry.target;
-            var endVal = parseFloat(el.dataset.end);
-            var suffix = el.dataset.suffix || "";
-            var prefix = el.dataset.prefix || "";
-            var decimals = el.dataset.decimals ? parseInt(el.dataset.decimals) : 0;
+            var endVal   = parseFloat(el.dataset.end);
+            var suffix   = el.dataset.suffix   || "";
+            var prefix   = el.dataset.prefix   || "";
+            var decimals = el.dataset.decimals  ? parseInt(el.dataset.decimals) : 0;
 
             if (typeof CountUp !== "undefined") {
               var cu = new CountUp(el, endVal, {
@@ -131,7 +194,7 @@
     }
 
     /* =====================================================
-       5. VANILLA-TILT — Stat card 3-D tilt effect
+       8. VANILLA-TILT — Stat card 3-D tilt effect
        ===================================================== */
     if (typeof VanillaTilt !== "undefined") {
       VanillaTilt.init(document.querySelectorAll(".stat-card"), {

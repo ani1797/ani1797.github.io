@@ -15,14 +15,18 @@
                 {{ $about.content | markdownify }}
 
                 {{ if .Site.Params.about.skills.enable }}
-                <p class="mt-4 mb-2" style="opacity:0.75;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;">
+                <p class="mt-5 mb-3 tech-stack-heading">
                     {{ $about.skills.title | default .Site.Params.about.skills.title }}
                 </p>
-                <div class="tech-grid">
-                    {{ range $i, $item := .Site.Params.about.skills.items }}
-                    <div class="tech-badge" data-aos="zoom-in" data-aos-delay="{{ mul $i 40 }}">
-                        <img src="{{ $item.logo }}" alt="{{ $item.name }}" loading="lazy">
-                        <small>{{ $item.name }}</small>
+                <div class="tech-pyramid">
+                    {{ range $i, $row := .Site.Params.about.skills.pyramid }}
+                    <div class="tech-row" data-aos="fade-up" data-aos-delay="{{ mul $i 80 }}">
+                        {{ range $row }}
+                        <div class="tech-item">
+                            <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+                            <small>{{ .name }}</small>
+                        </div>
+                        {{ end }}
                     </div>
                     {{ end }}
                 </div>
