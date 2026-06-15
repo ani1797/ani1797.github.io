@@ -36,7 +36,7 @@ params:
       disableAbout: false
       disableExperience: false
       disableEducation: true
-      disableProjects: false
+      disableProjects: true
       disableAchievements: true
       disableContact: false
 
@@ -105,7 +105,7 @@ params:
               - Led global MLOps pipeline design supporting multi-region model serving at scale
 
   projects:
-    enable: true
+    enable: false
     items:
       - title: mesa
         content: Cross-platform machine provisioning — one command to a fully configured workstation. Manages packages, dotfiles, and system configuration across macOS and Linux.
