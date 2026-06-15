@@ -4,15 +4,12 @@
   document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
-       1. CURSOR GLOW — ambient spotlight following the mouse
+       1. CURSOR GLOW — body::before gradient follows mouse
+          (no DOM element — uses CSS custom props on body)
        ===================================================== */
-    var glow = document.createElement("div");
-    glow.id = "cursor-glow";
-    document.body.insertBefore(glow, document.body.firstChild);
-
     document.addEventListener("mousemove", function (e) {
-      document.documentElement.style.setProperty("--cx", e.clientX + "px");
-      document.documentElement.style.setProperty("--cy", e.clientY + "px");
+      document.body.style.setProperty("--cx", e.clientX + "px");
+      document.body.style.setProperty("--cy", e.clientY + "px");
     });
 
     /* =====================================================

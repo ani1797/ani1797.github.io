@@ -1,23 +1,32 @@
 /* =======================================================
-   CURSOR GLOW — ambient spotlight that follows the mouse
+   CURSOR GLOW — full-viewport body::before, never overlaps
+   section content. Radial gradient follows --cx/--cy vars.
    ======================================================= */
-#cursor-glow {
+body {
+  --cx: -1000px;
+  --cy: -1000px;
+}
+body::before {
+  content: '';
   position: fixed;
-  top: 0; left: 0;
-  width: 500px; height: 500px;
-  border-radius: 50%;
+  inset: 0;
   pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: screen;
-  background: radial-gradient(circle, rgba(167,139,250,0.09) 0%, transparent 60%);
-  transform: translate(calc(var(--cx, -1200px) - 250px), calc(var(--cy, -1200px) - 250px));
-  transition: transform 0.1s linear;
-  will-change: transform;
+  z-index: 0;
+  background: radial-gradient(
+    380px circle at var(--cx) var(--cy),
+    rgba(167, 139, 250, 0.07) 0%,
+    transparent 70%
+  );
+  transition: background 0.05s linear;
 }
 
-/* =======================================================
-   HERO — particles host & z-index
-   ======================================================= */
+/* All sections sit above the body::before cursor glow */
+nav.navbar, section, footer, #impact-stats {
+  position: relative;
+  z-index: 1;
+}
+
+
 #hero { position: relative; overflow: hidden; }
 
 #hero-particles {
