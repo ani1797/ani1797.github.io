@@ -109,9 +109,9 @@ params:
           - name: "Hugging Face"
             logo: "https://cdn.simpleicons.org/huggingface/FFD21E"
           - name: "LangChain"
-            logo: "https://cdn.simpleicons.org/langchain/1C3C3C"
+            logo: "https://cdn.simpleicons.org/langchain/4FC08D"
           - name: "OpenAI"
-            logo: "https://cdn.simpleicons.org/openai/ffffff"
+            logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"
           - name: "MLflow"
             logo: "https://cdn.simpleicons.org/mlflow/0194E2"
         # Row 3 — CLOUD + IaC: cloud providers left, app+infra-as-code right
@@ -124,7 +124,7 @@ params:
           - name: "Databricks"
             logo: "https://cdn.simpleicons.org/databricks/FF3621"
           - name: "Bicep"
-            logo: "https://cdn.simpleicons.org/azurebicep/0078D4"
+            logo: "https://raw.githubusercontent.com/Azure/bicep/main/docs/images/BicepLogoImage.png"
           - name: "Next.js"
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
         # Row 4 — PLATFORM: orchestration stack in deployment order
@@ -159,7 +159,7 @@ params:
           - name: "Prometheus"
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg"
           - name: "Loki"
-            logo: "https://cdn.simpleicons.org/grafana/F46800"
+            logo: "https://raw.githubusercontent.com/grafana/loki/main/docs/sources/logo.png"
           - name: "OpenTelemetry"
             logo: "https://cdn.simpleicons.org/opentelemetry/425CC7"
 
