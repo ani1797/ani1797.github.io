@@ -1,0 +1,193 @@
+baseURL: "https://ani1797.github.io"
+locale: "en-us"
+title: "Anirudh Aggarwal"
+theme: hugo-profile
+
+params:
+  title: "Anirudh Aggarwal"
+  description: "Staff Engineer — AI & Platform Engineering"
+  favicon: "/images/favicon.png"
+
+  useBootstrapCDN: false
+  animate: true
+  mathjax: false
+
+  theme:
+    defaultTheme: "dark"
+
+  color:
+    darkmode:
+      textColor: "#e4e6eb"
+      secondaryTextColor: "#b0b3b8"
+      textLinkColor: "#a78bfa"
+      backgroundColor: "#0d1117"
+      secondaryBackgroundColor: "#161b22"
+      primaryColor: "#a78bfa"
+      secondaryColor: "#161b22"
+
+  navbar:
+    align: ms-auto
+    brandName: "Anirudh Aggarwal"
+    disableSearch: true
+    stickyNavBar:
+      enable: true
+      showOnScrollUp: true
+    menus:
+      disableAbout: false
+      disableExperience: false
+      disableEducation: true
+      disableProjects: false
+      disableAchievements: true
+      disableContact: false
+
+  hero:
+    enable: true
+    intro: "Hi, I'm"
+    title: "Anirudh."
+    subtitle: "I turn cutting-edge AI into production-grade systems."
+    content: |-
+      Staff Engineer with 8+ years across full-stack development, cloud infrastructure, and AI/ML systems.
+      Currently driving AI platform strategy at a Fortune 500 financial services company — building systems
+      that underwrite policies in under 2 minutes and power contact centre intelligence at 110M+ calls annually.
+    image: /images/hero.svg
+    bottomImage:
+      enable: true
+    button:
+      enable: false
+    socialLinks:
+      fontAwesomeIcons:
+        - icon: fab fa-github
+          url: https://github.com/ani1797
+        - icon: fab fa-linkedin
+          url: https://www.linkedin.com/in/aniaggarwal/
+        - icon: fab fa-x-twitter
+          url: https://twitter.com/ani171997
+
+  about:
+    enable: true
+    title: "About Me"
+    image: "/images/me.png"
+    content: |-
+      I'm a Staff Engineer specialising in AI platform architecture, MLOps, and GenAI productionisation.
+      My work sits at the intersection of large-scale infrastructure and applied machine learning — I care
+      deeply about making AI systems reliable, observable, and genuinely useful in production.
+
+      I'm currently focused on agentic AI architectures for autonomous decision-making in financial services,
+      enterprise RAG pipelines with multi-source retrieval, and scaling AI platform infrastructure to support
+      global GenAI adoption across business units.
+    skills:
+      enable: true
+      title: "Core technologies:"
+      items:
+        - "Python"
+        - "Go"
+        - "TypeScript / Rust"
+        - "PyTorch / Hugging Face"
+        - "LangChain / LangGraph"
+        - "RAG & Vector Databases"
+        - "Azure / AWS / GCP"
+        - "Kubernetes & Terraform"
+        - "MLOps pipelines"
+        - "Agentic AI systems"
+
+  experience:
+    enable: true
+    items:
+      - company: "Fortune 500 Financial Services"
+        jobs:
+          - name: "Staff Engineer — AI Platform"
+            date: "2022 - Present"
+            content: |-
+              Leading AI platform strategy and engineering for a global financial services organisation.
+
+              - Designed and shipped AI-powered underwriting engine processing approvals in under 2 minutes
+              - Built contact centre intelligence platform serving 110M+ calls annually with GenAI-powered knowledge retrieval
+              - Architected enterprise-wide GenAI enablement platform and responsible AI frameworks
+              - Led global MLOps pipeline design supporting multi-region model serving at scale
+
+  projects:
+    enable: true
+    items:
+      - title: mesa
+        content: Cross-platform machine provisioning — one command to a fully configured workstation. Manages packages, dotfiles, and system configuration across macOS and Linux.
+        image: /images/projects/mesa.png
+        featured:
+          name: View on GitHub
+          link: https://github.com/ani1797/mesa
+        badges:
+          - "Go"
+          - "Shell"
+          - "Cross-platform"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/ani1797/mesa
+
+      - title: signalweave
+        content: Declarative rule-evaluation agent built on the Microsoft Agent Framework and hosted on Azure AI Foundry. Evaluates signals across insurance and financial services domains.
+        image: /images/projects/signalweave.png
+        featured:
+          name: View on GitHub
+          link: https://github.com/ani1797/signalweave
+        badges:
+          - "Python"
+          - "Azure AI Foundry"
+          - "Agentic AI"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/ani1797/signalweave
+
+      - title: ctc-foundry
+        content: Terraform module for deploying Microsoft AI Foundry with full network isolation and Bring-Your-Own-VNet support. Production-ready Azure AI infrastructure as code.
+        image: /images/projects/ctc-foundry.png
+        featured:
+          name: View on GitHub
+          link: https://github.com/ani1797/ctc-foundry
+        badges:
+          - "Terraform"
+          - "Azure"
+          - "Infrastructure as Code"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/ani1797/ctc-foundry
+
+      - title: AutoDNS
+        content: Kubernetes controller that watches service and ingress events and writes DNS entries compatible with dnsmasq or /etc/hosts. Eliminates manual DNS management in local k8s development.
+        image: /images/projects/autodns.png
+        featured:
+          name: View on GitHub
+          link: https://github.com/ani1797/autodns
+        badges:
+          - "JavaScript"
+          - "Kubernetes"
+          - "DNS"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/ani1797/autodns
+
+      - title: engineer_gpt
+        content: AI-powered ML engineering assistant that scaffolds and iterates on machine learning projects. Uses OpenAI to generate, critique, and refine ML pipelines.
+        image: /images/projects/engineer-gpt.png
+        featured:
+          name: View on GitHub
+          link: https://github.com/ani1797/engineer_gpt
+        badges:
+          - "Python"
+          - "OpenAI"
+          - "MLOps"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/ani1797/engineer_gpt
+
+  contact:
+    enable: true
+    content: "Open to collaborations on AI/ML systems, platform engineering, and open-source projects."
+    btnName: "Get in touch"
+    btnLink: "mailto:ani.aggarwal@mail.utoronto.ca"
+
+  footer:
+    recentPosts:
+      enable: false
+    socialNetworks:
+      github: https://github.com/ani1797
+      linkedin: https://www.linkedin.com/in/aniaggarwal/
+      twitter: https://twitter.com/ani171997
