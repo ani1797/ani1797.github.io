@@ -4,12 +4,13 @@
 #cursor-glow {
   position: fixed;
   top: 0; left: 0;
-  width: 600px; height: 600px;
+  width: 500px; height: 500px;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 0;
-  background: radial-gradient(circle, rgba(167,139,250,0.065) 0%, transparent 65%);
-  transform: translate(calc(var(--cx, -1200px) - 300px), calc(var(--cy, -1200px) - 300px));
+  z-index: 9999;
+  mix-blend-mode: screen;
+  background: radial-gradient(circle, rgba(167,139,250,0.09) 0%, transparent 60%);
+  transform: translate(calc(var(--cx, -1200px) - 250px), calc(var(--cy, -1200px) - 250px));
   transition: transform 0.1s linear;
   will-change: transform;
 }
