@@ -1,0 +1,34 @@
+{{ if .Site.Params.about.enable | default false }}
+{{- $about := .Site.Language.Params.about | default .Site.Params.about -}}
+<section id="about" class="py-0 py-sm-5">
+    <div class="container bg-transparent">
+        <h3 class="text-center bg-transparent" data-aos="fade-up">{{ $about.title | default (i18n "about") }}</h3>
+        <div class="bg-transparent row justify-content-center px-3 py-5">
+            {{ if .Site.Params.about.image }}
+            <div class="col-sm-12 col-md-8 col-lg-4 mb-5 mb-sm-0 mb-md-5 mb-lg-0 d-none d-sm-none d-md-block">
+                <div class="image d-flex px-5" data-aos="fade-right">
+                    <img src="{{ .Site.Params.about.image }}" class="img-thumbnail mx-auto rounded-circle" alt="{{ .Site.Params.title }} profile picture">
+                </div>
+            </div>
+            {{ end }}
+            <div class="col-sm-12 col-md-12 col-lg-8 content" data-aos="fade-up" data-aos-delay="100">
+                {{ $about.content | markdownify }}
+
+                {{ if .Site.Params.about.skills.enable }}
+                <p class="mt-4 mb-2" style="opacity:0.75;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;">
+                    {{ $about.skills.title | default .Site.Params.about.skills.title }}
+                </p>
+                <div class="tech-grid">
+                    {{ range $i, $item := .Site.Params.about.skills.items }}
+                    <div class="tech-badge" data-aos="zoom-in" data-aos-delay="{{ mul $i 40 }}">
+                        <img src="{{ $item.logo }}" alt="{{ $item.name }}" loading="lazy">
+                        <small>{{ $item.name }}</small>
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

@@ -1,0 +1,217 @@
+/* =======================================================
+   HERO — particles host & z-index
+   ======================================================= */
+#hero { position: relative; overflow: hidden; }
+
+#hero-particles {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0; pointer-events: none;
+}
+
+#hero .content, #hero .image, #hero .row { position: relative; z-index: 2; }
+
+/* Animated gradient on the big name */
+#hero h1 {
+  background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 45%, #7c3aed 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientPan 5s linear infinite;
+}
+@keyframes gradientPan {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* Typed cursor */
+.typed-cursor { color: var(--primary-color, #a78bfa); }
+
+/* =======================================================
+   IMPACT STATS SECTION
+   ======================================================= */
+#impact-stats { position: relative; z-index: 2; }
+
+.stat-card {
+  background: var(--secondary-background-color, #161b22);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 16px;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa, #c4b5fd);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.stat-card:hover::before { transform: scaleX(1); }
+.stat-card:hover {
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 8px 32px rgba(167, 139, 250, 0.18);
+  transform: translateY(-6px);
+}
+
+.stat-icon {
+  font-size: 1.6rem;
+  color: var(--primary-color, #a78bfa);
+  margin-bottom: 0.75rem;
+  opacity: 0.85;
+}
+.stat-value {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--primary-color, #a78bfa);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-label {
+  font-size: 0.78rem;
+  opacity: 0.65;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1.3;
+}
+
+/* =======================================================
+   TECH LOGO GRID
+   ======================================================= */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.tech-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.7rem 0.4rem;
+  background: rgba(167, 139, 250, 0.04);
+  border: 1px solid rgba(167, 139, 250, 0.14);
+  border-radius: 12px;
+  width: 68px;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+.tech-badge:hover {
+  background: rgba(167, 139, 250, 0.1);
+  border-color: rgba(167, 139, 250, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.18);
+}
+.tech-badge img {
+  width: 30px; height: 30px;
+  object-fit: contain;
+  transition: filter 0.25s ease;
+}
+.tech-badge:hover img {
+  filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.55));
+}
+.tech-badge small {
+  font-size: 0.58rem;
+  text-align: center;
+  margin-top: 0.35rem;
+  opacity: 0.7;
+  line-height: 1.2;
+}
+
+/* =======================================================
+   SECTION HEADING ACCENT
+   ======================================================= */
+section h3.text-center::after {
+  content: '';
+  display: block;
+  width: 48px; height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+  border-radius: 2px;
+  margin: 0.45rem auto 0;
+}
+
+/* =======================================================
+   EXPERIENCE — Glassmorphism
+   ======================================================= */
+.experience-container {
+  background: rgba(22, 27, 34, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(167, 139, 250, 0.1);
+  border-radius: 18px;
+}
+
+#pills-tab .nav-link {
+  border: 1px solid rgba(167, 139, 250, 0.1) !important;
+  border-radius: 10px !important;
+  transition: all 0.22s ease !important;
+  padding: 0.5rem 0.8rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 4px !important;
+  min-width: 72px;
+}
+#pills-tab .nav-link:hover {
+  border-color: rgba(167, 139, 250, 0.35) !important;
+  background: rgba(167, 139, 250, 0.07) !important;
+}
+#pills-tab .nav-link.active {
+  border-color: var(--primary-color, #a78bfa) !important;
+  background: rgba(167, 139, 250, 0.12) !important;
+  box-shadow: 0 0 18px rgba(167, 139, 250, 0.18) !important;
+}
+
+.company-logo-wrap {
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.company-logo-wrap img {
+  width: 20px; height: 20px;
+  object-fit: contain;
+}
+
+.tab-pane.show.active {
+  animation: tabSlideIn 0.3s ease;
+}
+@keyframes tabSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Company name link in job header */
+.experience-container a[href] {
+  color: var(--primary-color, #a78bfa);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.experience-container a[href]:hover { opacity: 0.75; }
+
+/* Achievement bullet icon colour */
+.experience-container ul li::marker { color: var(--primary-color, #a78bfa); }
+
+/* =======================================================
+   AOS pointer-events fix
+   ======================================================= */
+[data-aos] { pointer-events: none; }
+[data-aos].aos-animate { pointer-events: auto; }
+
+/* =======================================================
+   SMOOTH SCROLL
+   ======================================================= */
+html { scroll-behavior: smooth; }
