@@ -1,9 +1,9 @@
 ---
 import experience from "../content/experience.json";
 
-const companyBadge: Record<string, { initials: string; classes: string }> = {
-  Microsoft: { initials: "MS", classes: "bg-[#1a2b4a] text-[#7ea6ff] border-[#2a4a7a]" },
-  Manulife: { initials: "MFC", classes: "bg-[#1a3a2e] text-secondary border-[#2a5a44]" },
+const companyLogo: Record<string, { src: string; alt: string; classes: string }> = {
+  Microsoft: { src: "/logos/microsoft.svg", alt: "Microsoft logo", classes: "bg-surface-container-high p-1.5" },
+  Manulife: { src: "/logos/manulife.svg", alt: "Manulife logo", classes: "bg-white p-1.5" },
 };
 ---
 
@@ -14,7 +14,7 @@ const companyBadge: Record<string, { initials: string; classes: string }> = {
 
     <ol class="relative border-l-2 border-secondary/40 ml-2">
       {experience.roles.map((role, i) => {
-        const badge = companyBadge[role.company];
+        const logo = companyLogo[role.company];
         return (
           <li
             class="fade-slide-up mb-10 ml-6 last:mb-0"
@@ -28,12 +28,12 @@ const companyBadge: Record<string, { initials: string; classes: string }> = {
             <div class="group rounded-lg border border-outline-variant bg-surface-container-low p-5 transition-all hover:border-secondary hover:shadow-[0_0_0_1px_theme(colors.secondary)]">
               <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
                 <div class="flex items-center gap-3">
-                  {badge && (
+                  {logo && (
                     <span
-                      class={`font-mono text-[10px] font-bold tracking-wide border rounded px-2 py-1 shrink-0 ${badge.classes}`}
+                      class={`flex h-9 w-9 items-center justify-center rounded-md border border-outline-variant shrink-0 ${logo.classes}`}
                       aria-hidden="true"
                     >
-                      {badge.initials}
+                      <img src={logo.src} alt={logo.alt} class="h-full w-full object-contain" />
                     </span>
                   )}
                   <div>

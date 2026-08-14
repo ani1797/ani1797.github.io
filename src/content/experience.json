@@ -9,8 +9,8 @@
       "dateRange": "Feb 2026 - Present",
       "summary": "Building next-generation intelligent cloud infrastructure and evangelizing production AI engineering at Microsoft scale.",
       "metrics": [
-        { "label": "Engineers mentored", "value": "6", "placeholder": true },
-        { "label": "Cross-org stakeholders", "value": "10+", "placeholder": true }
+        { "label": "Milestones delivered", "value": "13", "placeholder": false },
+        { "label": "Cross-org stakeholders", "value": "15", "placeholder": false }
       ]
     },
     {
