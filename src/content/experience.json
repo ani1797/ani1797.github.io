@@ -1,0 +1,53 @@
+{
+  "eyebrow": "Execution History",
+  "prompt": "~/user/aaggarwal > git log --oneline --experience_",
+  "roles": [
+    {
+      "commitHash": "#a1b2c3d",
+      "title": "Staff Engineer, Cloud + AI",
+      "company": "Microsoft",
+      "dateRange": "Feb 2026 - Present",
+      "summary": "Building next-generation intelligent cloud infrastructure and evangelizing production AI engineering at Microsoft scale.",
+      "metrics": [
+        { "label": "Engineers mentored", "value": "4", "placeholder": true },
+        { "label": "Cross-org stakeholders", "value": "7+", "placeholder": true }
+      ]
+    },
+    {
+      "commitHash": "#c4d7e9f",
+      "title": "Director of Generative AI",
+      "company": "Manulife",
+      "dateRange": "2023 - 2026",
+      "summary": "Owned the company's entire GenAI roadmap across 100+ business units globally. Shipped an AI underwriting engine (days to under 2 minutes) and a contact-centre RAG platform serving 110M+ calls/yr, backed by an MLOps backbone running billions of inferences/month at sub-200ms p99.",
+      "metrics": [
+        { "label": "Calls served / yr", "value": "110M+", "placeholder": false },
+        { "label": "p99 latency", "value": "<200ms", "placeholder": false },
+        { "label": "Team led", "value": "11 engineers", "placeholder": true },
+        { "label": "Infra cost reduced", "value": "17%", "placeholder": true },
+        { "label": "Models in production", "value": "20+", "placeholder": true },
+        { "label": "Patents filed", "value": "1", "placeholder": true }
+      ]
+    },
+    {
+      "commitHash": "#b2a1c8d",
+      "title": "Senior Machine Learning Engineer",
+      "company": "Manulife",
+      "dateRange": "2021 - 2023",
+      "summary": "Built the infrastructure layer by layer — feature stores, inference pipelines, MLOps tooling, model monitoring.",
+      "metrics": [
+        { "label": "Deployment frequency", "value": "3x improved", "placeholder": true },
+        { "label": "MTTR reduced", "value": "5%", "placeholder": true }
+      ]
+    },
+    {
+      "commitHash": "#e5f6g7h",
+      "title": "Machine Learning Engineer",
+      "company": "Manulife",
+      "dateRange": "2020 - 2021",
+      "summary": "Early ML infrastructure work — the unglamorous work that makes everything else possible.",
+      "metrics": [
+        { "label": "First production model shipped", "value": "", "placeholder": true }
+      ]
+    }
+  ]
+}

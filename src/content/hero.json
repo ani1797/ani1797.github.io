@@ -1,0 +1,32 @@
+{
+  "status": "SYS.STATUS: ONLINE",
+  "headline": "Anirudh Aggarwal",
+  "typedLine": "I turn cutting-edge AI into production-grade systems",
+  "bio": "Staff Engineer at Microsoft (ex-Director of Generative AI at Manulife). Architecting high-scale AI/ML systems and cloud infrastructure.",
+  "primaryCta": { "label": "Connect", "href": "#contact" },
+  "secondaryCta": { "label": "View Work", "href": "#work" },
+  "codePanel": {
+    "filename": "model_arch.py",
+    "lines": [
+      { "text": "def init_system():", "kind": "def" },
+      { "text": "    sys = DistributedAI(", "kind": "plain" },
+      { "text": "        scale=\"enterprise\",", "kind": "plain" },
+      { "text": "        latency_target=10, # ms", "kind": "plain" },
+      { "text": "        availability=0.9999", "kind": "plain" },
+      { "text": "    )", "kind": "plain" },
+      { "text": "", "kind": "blank" },
+      { "text": "    while True:", "kind": "def" },
+      { "text": "        sys.optimize()", "kind": "plain" },
+      { "text": "        sys.scale()", "kind": "plain" },
+      { "text": "        if sys.metrics.exceed():", "kind": "def" },
+      { "text": "            break", "kind": "def" },
+      { "text": "", "kind": "blank" },
+      { "text": "    return sys.deploy()", "kind": "def" }
+    ]
+  },
+  "telemetry": [
+    { "icon": "speed", "label": "p99 latency", "value": "187ms" },
+    { "icon": "data_usage", "label": "Traffic", "value": "110M+ calls/yr" },
+    { "icon": "check_circle", "label": "Uptime", "value": "99.98%" }
+  ]
+}

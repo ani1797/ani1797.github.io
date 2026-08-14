@@ -1,0 +1,35 @@
+---
+import projects from "../content/projects.json";
+---
+
+<section id="work" class="py-16 md:py-24 border-t border-outline-variant">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
+    <h2 class="text-2xl md:text-3xl font-bold text-on-surface">{projects.eyebrow}</h2>
+    <p class="text-on-surface-variant mt-2 mb-12 max-w-2xl">{projects.description}</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {projects.items.map((project, i) => (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noreferrer"
+          class="fade-slide-up group block rounded-lg border border-outline-variant bg-surface-container-low p-5 transition-all duration-200 hover:-translate-y-1 hover:scale-[1.02] hover:border-secondary hover:shadow-[0_0_20px_-4px_theme(colors.secondary)]"
+          data-animate
+          data-delay={i * 80}
+        >
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-mono text-sm text-on-surface flex items-center gap-2">
+              <span class="text-secondary" aria-hidden="true">&lt;/&gt;</span>
+              {project.name}
+            </span>
+            <span class="font-mono text-[10px] text-on-surface-variant border border-outline-variant rounded px-1.5 py-0.5">
+              {project.status}
+            </span>
+          </div>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-4">{project.description}</p>
+          <span class="font-mono text-xs text-primary">● {project.language}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

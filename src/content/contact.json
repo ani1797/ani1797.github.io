@@ -1,0 +1,19 @@
+{
+  "heading": "Let's build something.",
+  "prompt": "$ connect --with anirudh",
+  "cards": [
+    {
+      "icon": "code",
+      "label": "GitHub",
+      "value": "@ani1797",
+      "href": "https://github.com/ani1797"
+    },
+    {
+      "icon": "work",
+      "label": "LinkedIn",
+      "value": "aniaggarwal",
+      "href": "https://www.linkedin.com/in/aniaggarwal/"
+    }
+  ],
+  "cta": { "label": "Send a message", "href": "mailto:hello@ani1797.dev" }
+}

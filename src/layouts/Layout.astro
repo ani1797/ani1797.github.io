@@ -1,0 +1,81 @@
+---
+import "../styles/global.css";
+import site from "../content/site.json";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = site.title, description = site.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href={site.logo} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="bg-background text-on-surface font-sans min-h-screen flex flex-col grid-bg selection:bg-primary selection:text-on-primary-container">
+    <slot />
+    <script>
+      // Scroll-reveal for [data-animate] elements: fade-slide-up + staggered count-up metrics.
+      const revealables = document.querySelectorAll<HTMLElement>("[data-animate]");
+      const countables = document.querySelectorAll<HTMLElement>("[data-count-to]");
+
+      const animateCount = (el: HTMLElement) => {
+        const target = el.dataset.countTo ?? "";
+        const numeric = parseFloat(target.replace(/[^0-9.]/g, ""));
+        if (Number.isNaN(numeric)) return;
+        const prefix = target.match(/^[^0-9]*/)?.[0] ?? "";
+        const suffix = target.match(/[^0-9]*$/)?.[0] ?? "";
+        const duration = 1200;
+        const start = performance.now();
+        const step = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(numeric * eased * 10) / 10;
+          el.textContent = `${prefix}${current}${suffix}`;
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target;
+        };
+        requestAnimationFrame(step);
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              const delay = Number(el.dataset.delay ?? i * 80);
+              setTimeout(() => {
+                el.classList.add("is-visible");
+                if (el.dataset.countTo) animateCount(el);
+              }, delay);
+              observer.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      revealables.forEach((el) => observer.observe(el));
+      countables.forEach((el) => {
+        if (!el.hasAttribute("data-animate")) observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

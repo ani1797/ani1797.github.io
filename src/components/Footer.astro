@@ -1,0 +1,14 @@
+---
+import site from "../content/site.json";
+---
+
+<footer class="w-full py-6 bg-surface-container-lowest border-t border-outline-variant">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-4 px-4 sm:px-6 max-w-screen-xl mx-auto font-mono text-xs text-on-surface-variant">
+    <span>[{site.footer.revision}] // UPTIME: {site.footer.uptime} // ▲ {site.footer.year}</span>
+    <div class="flex items-center gap-4">
+      <a class="hover:text-secondary underline decoration-1 underline-offset-4" href={site.social.github} target="_blank" rel="noreferrer">GitHub</a>
+      <a class="hover:text-secondary underline decoration-1 underline-offset-4" href={site.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a class="hover:text-secondary underline decoration-1 underline-offset-4" href={site.social.x} target="_blank" rel="noreferrer">X</a>
+    </div>
+  </div>
+</footer>

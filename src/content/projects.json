@@ -1,0 +1,48 @@
+{
+  "eyebrow": "> PROJECTS_",
+  "description": "A collection of technical tools, workflow optimizations, and AI explorations. Built for resilience and speed.",
+  "items": [
+    {
+      "name": "kaito-base-rocm",
+      "description": "AMD ROCm KAITO runtime image and build workflow.",
+      "language": "Go",
+      "status": "PROD",
+      "url": "https://github.com/ani1797/kaito-base-rocm"
+    },
+    {
+      "name": "how-to",
+      "description": "Self-contained, bite-sized workshops on all things agents — built for builders tackling the big problems.",
+      "language": "Jupyter Notebook",
+      "status": "ACTIVE",
+      "url": "https://github.com/ani1797/how-to"
+    },
+    {
+      "name": "WorkbenchIQ",
+      "description": "Microsoft accelerator: modern workbench for underwriters and claims processors, combining Azure AI Content Understanding and Azure AI Foundry.",
+      "language": "Azure AI",
+      "status": "ACCEL",
+      "url": "https://github.com/ani1797/WorkbenchIQ"
+    },
+    {
+      "name": "engineer-gpt",
+      "description": "Time-capsule: prompt-driven code generation agent built before modern AI harnesses — an early example of NL to code using Azure OpenAI.",
+      "language": "Python",
+      "status": "ARCHIVED",
+      "url": "https://github.com/ani1797/engineer-gpt"
+    },
+    {
+      "name": "dotfiles",
+      "description": "Personal dotfiles — chezmoi managed, Codespaces compatible.",
+      "language": "Shell",
+      "status": "SYNCED",
+      "url": "https://github.com/ani1797/dotfiles"
+    },
+    {
+      "name": "azure-blob-sftp-proxy",
+      "description": "SFTP to Azure Blob Proxy.",
+      "language": "Dockerfile",
+      "status": "INFRA",
+      "url": "https://github.com/ani1797/azure-blob-sftp-proxy"
+    }
+  ]
+}

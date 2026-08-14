@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import ExecutionHistory from "../components/ExecutionHistory.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+  <Nav />
+  <main class="flex-grow flex flex-col">
+    <Hero />
+    <ExecutionHistory />
+    <Projects />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>
