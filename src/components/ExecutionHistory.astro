@@ -1,47 +1,65 @@
 ---
 import experience from "../content/experience.json";
+
+const companyBadge: Record<string, { initials: string; classes: string }> = {
+  Microsoft: { initials: "MS", classes: "bg-[#1a2b4a] text-[#7ea6ff] border-[#2a4a7a]" },
+  Manulife: { initials: "MFC", classes: "bg-[#1a3a2e] text-secondary border-[#2a5a44]" },
+};
 ---
 
-<section id="impact" class="min-h-screen flex flex-col justify-center py-16 md:py-24 border-t border-outline-variant">
+<section id="impact" class="min-h-[calc(100vh-4rem)] flex flex-col justify-center py-16 md:py-24 border-t border-outline-variant">
   <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
     <h2 class="text-2xl md:text-3xl font-bold text-on-surface">{experience.eyebrow}</h2>
     <p class="font-mono text-sm text-secondary mt-2 mb-12">{experience.prompt}</p>
 
     <ol class="relative border-l-2 border-secondary/40 ml-2">
-      {experience.roles.map((role, i) => (
-        <li
-          class="fade-slide-up mb-10 ml-6 last:mb-0"
-          data-animate
-          data-delay={i * 120}
-        >
-          <span
-            class="absolute -left-[9px] flex h-4 w-4 rounded-full bg-secondary ring-4 ring-background"
-            aria-hidden="true"
-          ></span>
-          <div class="group rounded-lg border border-outline-variant bg-surface-container-low p-5 transition-all hover:border-secondary hover:shadow-[0_0_0_1px_theme(colors.secondary)]">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <div>
-                <h3 class="font-bold text-on-surface text-lg">{role.title}</h3>
-                <p class="text-on-surface-variant text-sm">{role.company} · {role.dateRange}</p>
-              </div>
-              <span class="font-mono text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
-                commit {role.commitHash}
-              </span>
-            </div>
-            <p class="text-on-surface-variant text-sm leading-relaxed mb-4">{role.summary}</p>
-            <div class="flex flex-wrap gap-2">
-              {role.metrics.map((metric) => (
-                <span class="font-mono text-xs text-secondary border border-secondary/30 bg-secondary/5 rounded-full px-3 py-1">
-                  {metric.label}{metric.value ? `: ` : ""}
-                  {metric.value && (
-                    <strong class="text-on-surface" data-count-to={metric.value}>{metric.value}</strong>
+      {experience.roles.map((role, i) => {
+        const badge = companyBadge[role.company];
+        return (
+          <li
+            class="fade-slide-up mb-10 ml-6 last:mb-0"
+            data-animate
+            data-delay={i * 120}
+          >
+            <span
+              class="absolute -left-[9px] flex h-4 w-4 rounded-full bg-secondary ring-4 ring-background"
+              aria-hidden="true"
+            ></span>
+            <div class="group rounded-lg border border-outline-variant bg-surface-container-low p-5 transition-all hover:border-secondary hover:shadow-[0_0_0_1px_theme(colors.secondary)]">
+              <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                <div class="flex items-center gap-3">
+                  {badge && (
+                    <span
+                      class={`font-mono text-[10px] font-bold tracking-wide border rounded px-2 py-1 shrink-0 ${badge.classes}`}
+                      aria-hidden="true"
+                    >
+                      {badge.initials}
+                    </span>
                   )}
+                  <div>
+                    <h3 class="font-bold text-on-surface text-lg">{role.title}</h3>
+                    <p class="text-on-surface-variant text-sm">{role.company} · {role.dateRange}</p>
+                  </div>
+                </div>
+                <span class="font-mono text-xs text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">
+                  commit {role.commitHash}
                 </span>
-              ))}
+              </div>
+              <p class="text-on-surface-variant text-sm leading-relaxed mb-4">{role.summary}</p>
+              <div class="flex flex-wrap gap-2">
+                {role.metrics.map((metric) => (
+                  <span class="font-mono text-xs text-secondary border border-secondary/30 bg-secondary/5 rounded-full px-3 py-1">
+                    {metric.label}{metric.value ? `: ` : ""}
+                    {metric.value && (
+                      <strong class="text-on-surface" data-count-to={metric.value}>{metric.value}</strong>
+                    )}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        </li>
-      ))}
+          </li>
+        );
+      })}
     </ol>
   </div>
 </section>
