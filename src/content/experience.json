@@ -9,8 +9,8 @@
       "dateRange": "Feb 2026 - Present",
       "summary": "Building next-generation intelligent cloud infrastructure and evangelizing production AI engineering at Microsoft scale.",
       "metrics": [
-        { "label": "Engineers mentored", "value": "4", "placeholder": true },
-        { "label": "Cross-org stakeholders", "value": "7+", "placeholder": true }
+        { "label": "Engineers mentored", "value": "6", "placeholder": true },
+        { "label": "Cross-org stakeholders", "value": "10+", "placeholder": true }
       ]
     },
     {
@@ -21,11 +21,13 @@
       "summary": "Owned the company's entire GenAI roadmap across 100+ business units globally. Shipped an AI underwriting engine (days to under 2 minutes) and a contact-centre RAG platform serving 110M+ calls/yr, backed by an MLOps backbone running billions of inferences/month at sub-200ms p99.",
       "metrics": [
         { "label": "Calls served / yr", "value": "110M+", "placeholder": false },
+        { "label": "Business units enabled", "value": "100+", "placeholder": false },
+        { "label": "Underwriting time", "value": "<2 min", "placeholder": false },
         { "label": "p99 latency", "value": "<200ms", "placeholder": false },
-        { "label": "Team led", "value": "11 engineers", "placeholder": true },
-        { "label": "Infra cost reduced", "value": "17%", "placeholder": true },
-        { "label": "Models in production", "value": "20+", "placeholder": true },
-        { "label": "Patents filed", "value": "1", "placeholder": true }
+        { "label": "Team led", "value": "12 engineers", "placeholder": true },
+        { "label": "Infra cost reduced", "value": "22%", "placeholder": true },
+        { "label": "Models in production", "value": "15+", "placeholder": true },
+        { "label": "Patents filed", "value": "2", "placeholder": true }
       ]
     },
     {
@@ -35,8 +37,9 @@
       "dateRange": "2021 - 2023",
       "summary": "Built the infrastructure layer by layer — feature stores, inference pipelines, MLOps tooling, model monitoring.",
       "metrics": [
-        { "label": "Deployment frequency", "value": "3x improved", "placeholder": true },
-        { "label": "MTTR reduced", "value": "5%", "placeholder": true }
+        { "label": "Deployment frequency", "value": "4x faster", "placeholder": true },
+        { "label": "MTTR reduced", "value": "35%", "placeholder": true },
+        { "label": "Feature store adoption", "value": "8 teams", "placeholder": true }
       ]
     },
     {
@@ -46,7 +49,8 @@
       "dateRange": "2020 - 2021",
       "summary": "Early ML infrastructure work — the unglamorous work that makes everything else possible.",
       "metrics": [
-        { "label": "First production model shipped", "value": "", "placeholder": true }
+        { "label": "First production model shipped", "value": "Q3 2020", "placeholder": true },
+        { "label": "Manual review time cut", "value": "40%", "placeholder": true }
       ]
     }
   ]

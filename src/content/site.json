@@ -4,6 +4,7 @@
   "title": "Anirudh Aggarwal — Staff Engineer, Cloud + AI",
   "description": "Staff Engineer at Microsoft (ex-Director of Generative AI at Manulife). I close the gap between AI proof-of-concept and AI running reliably in production, at scale.",
   "logo": "/images/aa-monogram-dark.png",
+  "resume": { "label": "RESUME.PDF", "href": "/resume.pdf" },
   "nav": [
     { "label": "Impact", "href": "#impact" },
     { "label": "Work", "href": "#work" },

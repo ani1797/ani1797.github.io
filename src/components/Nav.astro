@@ -5,6 +5,7 @@ const searchable = [
   ...site.nav.map((n) => ({ label: n.label, href: n.href })),
   { label: "GitHub", href: site.social.github },
   { label: "LinkedIn", href: site.social.linkedin },
+  { label: site.resume.label, href: site.resume.href },
 ];
 ---
 
@@ -27,6 +28,13 @@ const searchable = [
     </div>
 
     <div class="flex items-center gap-4">
+      <a
+        href={site.resume.href}
+        download
+        class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 border border-outline-variant rounded font-mono text-xs text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors"
+      >
+        {site.resume.label}
+      </a>
       <button
         id="palette-trigger"
         type="button"
