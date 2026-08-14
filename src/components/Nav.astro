@@ -20,7 +20,9 @@ const searchable = [
       {site.nav.map((item) => (
         <a
           href={item.href}
-          class="text-on-surface-variant hover:text-primary transition-colors pb-1"
+          data-nav-link
+          data-target={item.href.replace("#", "")}
+          class="nav-link text-on-surface-variant hover:text-primary transition-colors pb-1 border-b border-transparent"
         >
           {item.label}
         </a>
@@ -144,4 +146,34 @@ const searchable = [
       item.style.display = match ? "" : "none";
     });
   });
+
+  items.forEach((item) => item.addEventListener("click", closePalette));
+
+  // Highlight the nav link matching the section currently in view.
+  const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]"));
+  const sections = navLinks
+    .map((link) => document.getElementById(link.dataset.target ?? ""))
+    .filter((el): el is HTMLElement => el !== null);
+
+  const setActive = (id: string | null) => {
+    navLinks.forEach((link) => {
+      const isActive = link.dataset.target === id;
+      link.classList.toggle("text-secondary", isActive);
+      link.classList.toggle("border-secondary", isActive);
+      link.classList.toggle("text-on-surface-variant", !isActive);
+    });
+  };
+
+  if (sections.length) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    sections.forEach((section) => sectionObserver.observe(section));
+  }
 </script>

@@ -26,11 +26,23 @@
 @layer base {
   html {
     color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-on-surface);
+  }
+
+  section[id],
+  #top {
+    scroll-margin-top: 5rem;
   }
 
   ::selection {
